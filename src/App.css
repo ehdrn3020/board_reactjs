@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+.app {
+  text-align: center;
+  padding: 1rem;
+}
+.app > .board-header {
+  width: 80%;
+  display: inline-block;
+  margin: 1rem 0;
+}
+.app > .board-table {
+  margin: 2rem 0;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
