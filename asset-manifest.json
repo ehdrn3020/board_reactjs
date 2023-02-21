@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "//board_reactjs/static/css/main.fa54acc0.css",
+    "main.js": "//board_reactjs/static/js/main.d2536620.js",
+    "index.html": "//board_reactjs/index.html",
+    "main.fa54acc0.css.map": "//board_reactjs/static/css/main.fa54acc0.css.map",
+    "main.d2536620.js.map": "//board_reactjs/static/js/main.d2536620.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fa54acc0.css",
+    "static/js/main.d2536620.js"
+  ]
+}
