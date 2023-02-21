@@ -1,7 +1,21 @@
 import './App.css';
+import axios from 'axios';
+
 import { Nav, Navbar, Container, Card, Table } from 'react-bootstrap';
+import { useState } from 'react';
 
 function App() {
+
+  let [lists, setLists] = useState([])
+
+  axios.get('https://ehdrn3020.github.io/server_json/data/board_1.json')
+  .then((data)=>{ 
+    setLists(data.data)
+  })
+  .catch(()=>{
+    console.log('Request Fail!')
+  })
+  
   return (
     <>
       <>
@@ -29,40 +43,44 @@ function App() {
             </Card.Body>
           </Card>
         </div>
-        <div className='board-table'>
-          <Table striped>
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Username</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td colSpan={2}>Larry the Bird</td>
-                <td>@twitter</td>
-              </tr>
-            </tbody>
-          </Table>
-        </div>
+
+        <Board lists={lists}/>
+      
       </div>
     </>
   );
+}
+
+function Board(props) {
+  // props.lists.map((item, i)=>{ console.log(item)})
+  return (
+    <div className='board-table'>
+      <Table striped>
+        <thead>
+          <tr>
+            <th></th>
+            <th>제목</th>
+            <th>예약자</th>
+            <th>날짜</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            props.lists.map((item)=>{
+              return (
+                <tr key={item.id}>
+                  <td>{item.id}</td>
+                  <td>{item.title}</td>
+                  <td>{item.user}</td>
+                  <td>{item.date}</td>
+                </tr>
+              )
+            })
+          }
+        </tbody>
+      </Table>
+    </div>
+  )
 }
 
 export default App;
